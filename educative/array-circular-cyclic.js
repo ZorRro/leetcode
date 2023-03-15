@@ -12,7 +12,7 @@ function isCyclicCircularArray(a) {
     let direction = a[c] < 0 ? -1 : 1
     while(1) {
       let next = c + a[c];
-      c = next >= a.length ? next - a.length : next;
+      c = Math.abs(next) >= a.length ? next - a.length : next;
       if ((a[c] < 0 && direction < 0) || (a[c] > 0 && direction > 0) ) {
         if (m[c]) return true; // cycle
         m[c] = 1;
