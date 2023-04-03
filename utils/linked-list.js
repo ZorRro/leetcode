@@ -49,18 +49,6 @@ class LinkedList {
     }
 }
 
-function reverseLinkedList(head) {
-  let prev = null,
-      curr = head;
-
-  while (curr != null) {
-      let nxt = curr.next;
-      curr.next = prev;
-      prev = curr;
-      curr = nxt;
-  }
-  return prev;
-}
 
 
 // Template for traversing a linked list
@@ -71,13 +59,46 @@ function traverseLinkedList(head) {
 
   while (current != null) {
       nxt = current.next;
+      console.log(`${current.data}, `);
       current = nxt;
   }
 }
+
+
+
+// Template for reversing a linked list
+function reverseLinkedList(head) {
+    let prev = null,
+        curr = head;
+
+    while (curr != null) {
+        let nxt = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = nxt;
+    }
+    return prev;
+}
+
+function reverseTillNode(head, end) {
+    let prev = null,
+        curr = head;
+
+    while (curr != end) {
+        let nxt = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = nxt;
+    }
+    return prev;
+}
+
+
 
 module.exports = {
   LinkedListNode,
   LinkedList,
   reverseLinkedList,
-  traverseLinkedList
+  traverseLinkedList,
+  reverseTillNode,
 }
